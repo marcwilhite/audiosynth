@@ -1,0 +1,24 @@
+{
+  "name": "audiosynth",
+  "version": "0.0.1",
+  "description": "JavaScript Audio Synthesizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcwilhite/audiosynth.git"
+  },
+  "keywords": [
+    "synthesizer",
+    "synth",
+    "audio"
+  ],
+  "author": "Marc Wilhite",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcwilhite/audiosynth/issues"
+  },
+  "homepage": "https://github.com/marcwilhite/audiosynth"
+}
