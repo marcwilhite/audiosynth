@@ -1,4 +1,4 @@
-function SoundSynth(context) {
+function AudioSynth(context) {
 
   this.context = context;
 
@@ -17,7 +17,7 @@ function SoundSynth(context) {
 
 }
 
-SoundSynth.prototype.playNote = function(MIDINote, amplitude, filterOffset, currentTime) {
+AudioSynth.prototype.playNote = function(MIDINote, amplitude, filterOffset, currentTime) {
 
   amplitude = amplitude * 0.5;
   if (amplitude <= 0.0) {
@@ -58,7 +58,7 @@ SoundSynth.prototype.playNote = function(MIDINote, amplitude, filterOffset, curr
 };
 
 
-SoundSynth.prototype.setOscWave = function(value) {
+AudioSynth.prototype.setOscWave = function(value) {
   var wave;
   switch (value) {
     case 0:
@@ -79,60 +79,60 @@ SoundSynth.prototype.setOscWave = function(value) {
   this.wave = wave;
 };
 
-SoundSynth.prototype.setMasterGain = function(value) {
+AudioSynth.prototype.setMasterGain = function(value) {
 
   this._gainNode.gain.value = value * 0.8;
 };
 
-SoundSynth.prototype.setAmpAttackTime = function(value) {
+AudioSynth.prototype.setAmpAttackTime = function(value) {
   this._ampAttackTime = value * 5;
 };
 
-SoundSynth.prototype.setAmpReleaseTime = function(value) {
+AudioSynth.prototype.setAmpReleaseTime = function(value) {
   this._ampReleaseTime = value * 5;
 };
 
-SoundSynth.prototype.setFilterAttackTime = function(value) {
+AudioSynth.prototype.setFilterAttackTime = function(value) {
   this._filterAttackTime = value * 5;
 };
 
-SoundSynth.prototype.setFilterReleaseTime = function(value) {
+AudioSynth.prototype.setFilterReleaseTime = function(value) {
   this._filterReleaseTime = value * 5;
 };
 
-SoundSynth.prototype.setFilterCutoff = function(value) {
+AudioSynth.prototype.setFilterCutoff = function(value) {
   this._filterCutoff = value * 10000;
 };
 
-SoundSynth.prototype.setFilterResonance = function(value) {
+AudioSynth.prototype.setFilterResonance = function(value) {
   this._filterRes = value * 2;
 };
 
-SoundSynth.prototype.setFilterEnvMod = function(value) {
+AudioSynth.prototype.setFilterEnvMod = function(value) {
   this._filterEnvMod = value * 10;
 };
 
-SoundSynth.prototype.setDelayTimeTempo = function(tempo, beat) {
+AudioSynth.prototype.setDelayTimeTempo = function(tempo, beat) {
   this.setDelayTime(60 / tempo * beat);
 };
 
-SoundSynth.prototype.setDelayTime = function(value) {
+AudioSynth.prototype.setDelayTime = function(value) {
   this._leftDelay.delayTime.value = value;
   this._rightDelay.delayTime.value = value * 2;
 };
 
-SoundSynth.prototype.setDelayFeedback = function(value) {
+AudioSynth.prototype.setDelayFeedback = function(value) {
   this._leftFeedback.gain.value = value;
   this._rightFeedback.gain.value = value;
 };
 
-SoundSynth.prototype._createMasterGain = function() {
+AudioSynth.prototype._createMasterGain = function() {
   this._gainNode = this.context.createGain();
   this._gainNode.connect(this.context.destination);
   this.setMasterGain(0.5);
 };
 
-SoundSynth.prototype._createLowPassFilter = function() {
+AudioSynth.prototype._createLowPassFilter = function() {
 
   var lowPassFilter = this.context.createBiquadFilter();
   lowPassFilter.type = 'lowpass';
@@ -146,7 +146,7 @@ SoundSynth.prototype._createLowPassFilter = function() {
 
 };
 
-SoundSynth.prototype._createStereoDelay = function() {
+AudioSynth.prototype._createStereoDelay = function() {
   this._merger = this.context.createChannelMerger(2);
   this._merger.connect(this.context.destination);
   this._leftDelay = this.context.createDelay();
@@ -164,11 +164,11 @@ SoundSynth.prototype._createStereoDelay = function() {
   this._rightFeedback.connect(this._merger, 0, 1);
 
   this.setDelayTime(0.25);
-  this.setDelayFeedback(0.6);
+  this.setDelayFeedback(0);
 
 };
 
-SoundSynth.prototype._noteToMIDI = function(note, octave) {
+AudioSynth.prototype.noteToMIDI = function(note, octave) {
   note = note.toUpperCase();
   if (note === 'DB') {
     note = 'C#';
@@ -186,8 +186,8 @@ SoundSynth.prototype._noteToMIDI = function(note, octave) {
 
 };
 
-SoundSynth.prototype._MIDIToFrequency = function(MIDINote) {
+AudioSynth.prototype._MIDIToFrequency = function(MIDINote) {
   return Math.pow(2, (MIDINote - 69) / 12) * 440.0;
 };
 
-module.exports = SoundSynth;
+module.exports = AudioSynth;
