@@ -1,7 +1,7 @@
 audiosynth
 ==========
 
-JavaScript Audio Synthesizer Library
+JavaScript Audio Synthesizer Library (Browserify Version)
 
 ##Getting Started
 
