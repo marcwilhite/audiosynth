@@ -32,7 +32,7 @@ JavaScript Audio Synthesizer Library (Browserify Version)
 	// Set delay time to tempo
 	synth.setDelayTimeTempo(110, 0.25);
 
-	// Set notes using note tradition note names
+	// Set notes using traditional note names
 	synth.playNote(synth.noteToMIDI('A', 4), 1.0, 1.0, 0);
 
 	// Set filter cuttoff
