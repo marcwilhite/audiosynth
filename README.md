@@ -27,7 +27,7 @@ JavaScript Audio Synthesizer Library (Browserify Version)
 	synth.playNote(69, 1.0, 1.0, 0);
 
 	// Turn up stereo delay
-	synth.delayFeedback(0.5); 
+	synth.setDelayFeedback(0.5); 
 
 	// Set delay time to tempo
 	synth.setDelayTimeTempo(110, 0.25);
