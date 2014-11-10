@@ -14,7 +14,7 @@ JavaScript Audio Synthesizer Library (Browserify Version)
 	var AudioContext = window.AudioContext || window.webkitAudioContext;
 
 	var context = new AudioContext();
-	synth = new AudioSynth(context);
+	var synth = new AudioSynth(context);
 
 	// Default oscillator wave is sawtooth
 
