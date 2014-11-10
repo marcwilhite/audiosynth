@@ -1,6 +1,6 @@
 {
   "name": "audiosynth",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "JavaScript Audio Synthesizer",
   "main": "index.js",
   "scripts": {
