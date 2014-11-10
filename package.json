@@ -1,6 +1,6 @@
 {
   "name": "audiosynth",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JavaScript Audio Synthesizer",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,11 @@
   "keywords": [
     "synthesizer",
     "synth",
-    "audio"
+    "audio",
+    "browserify",
+    "web",
+    "api",
+    "music"
   ],
   "author": "Marc Wilhite",
   "license": "MIT",
